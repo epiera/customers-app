@@ -6,25 +6,7 @@ import AppFrame from './../components/AppFrame';
 import CustomersList from './../components/CustomersList';
 import CustomersActions from '../components/CustomersActions';
 import { fetchCustomers } from './../actions/fetchCustomers';
-
-const customers = [
-  {
-    "dni": "27000000",
-    "name": "Juan Perez",
-    "age": 37
-  },
-  {
-    "dni": "30000000",
-    "name": "Paco Martinez",
-    "age": 15
-  },
-  {
-    "dni": "33000000",
-    "name": "Pedro Gonzalez",
-    "age": 67
-  }
-];
-
+import { getCustomers } from './../selectors/customers';
 class CustomerContainer extends Component {
   
   componentDidMount() {
@@ -54,7 +36,7 @@ class CustomerContainer extends Component {
       <div>
         <AppFrame
           header={'Listado de clientes'}
-          body={this.renderBody(customers)}
+          body={this.renderBody(this.props.customers)}
           >
         </AppFrame>
       </div>
@@ -64,12 +46,16 @@ class CustomerContainer extends Component {
 
 CustomerContainer.propTypes = {
   fetchCustomers: PropTypes.func.isRequired,
+  customers: PropTypes.array.isRequired
 };
 
-const mapDispatchToProps = dispatch => (
-  {
-    fetchCustomers: () => dispatch(fetchCustomers())
-  }
-)
+CustomerContainer.defaultProps = {
+  customers: []
+}
+const mapDispatchToProps = { fetchCustomers }
 
-export default withRouter(connect(null, mapDispatchToProps)(CustomerContainer));
+const mapStateToProps = state => ({
+  customers: getCustomers(state)
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CustomerContainer));
