@@ -1,18 +1,21 @@
 {
   "customers": [
     {
+      "id": "27000000",
       "dni": "27000000",
       "name": "Juan Perez 1",
       "age": 37
     },
     {
+      "id": "30000000",
       "dni": "30000000",
       "name": "Paco Martinez",
       "age": 15
     },
     {
+      "id": "33000000",
       "dni": "33000000",
-      "name": "Pedro Gonzalez",
+      "name": "Pedro Gonz",
       "age": 67
     }
   ],
