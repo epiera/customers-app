@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { SubmissionError } from 'redux-form';
 import AppFrame from '../components/AppFrame';
 import { getCustomerByDni } from '../selectors/customers';
 import { Route } from 'react-router-dom';
@@ -21,7 +22,11 @@ class CustomerContainer extends Component {
   handleSubmit = values => {
     console.log(JSON.stringify(values));
     const { id } = values;
-    return this.props.updateCustomer(id, values)
+    return this.props.updateCustomer(id, values).then( r => {
+      if (r.error){
+        throw new SubmissionError(r.payload);
+      }
+    });
   }
 
   handleSubmitSuccess = () =>{

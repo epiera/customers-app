@@ -10,7 +10,7 @@ server.listen(3001, () => {
   console.log('JSON Server is running')
 })
 
-server.put('/customers/30000001', (req, res) => {
+server.put('/customers/30000000', (req, res) => {
   let body = [];
   req.on('data', (chunk) => {
     body.push(chunk);
@@ -35,3 +35,7 @@ server.put('/customers/30000001', (req, res) => {
 })
 
 server.use(router)
+
+
+
+
