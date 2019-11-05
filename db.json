@@ -9,14 +9,32 @@
     {
       "id": "30000000",
       "dni": "30000000",
-      "name": "Pez",
+      "name": "PEZ11",
       "age": 18
     },
     {
       "id": "39000000",
-      "dni": "39000000",
+      "dni": "11111111S",
       "name": "TANIA BAUSAN 1",
       "age": 31
+    },
+    {
+      "id": "11111111A",
+      "dni": "11111111A",
+      "name": "PACO 1",
+      "age": 10
+    },
+    {
+      "id": "RyLsKFY",
+      "dni": "888888888",
+      "name": "DANI",
+      "age": 45
+    },
+    {
+      "id": "eGxCraO",
+      "dni": "555555555",
+      "name": "JOSELILLO1111",
+      "age": 30
     }
   ],
   "posts": [
