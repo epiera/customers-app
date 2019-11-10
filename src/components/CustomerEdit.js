@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
-import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
+import { accessControl } from './../helpers/accessControl';
+import { setPropsAsInitial } from './../helpers/setPropsAsInitial';
 import CustomersActions from './CustomersActions';
 import { Prompt } from 'react-router-dom';
+import { CUSTOMER_EDIT, CUSTOMER_VIEW } from '../constants/permissions';
 
 
 /* Field validacion (has priority over global)*/
@@ -119,4 +121,4 @@ const CustomerEditForm = reduxForm(
   }
 )(CustomerEdit);
 
-export default setPropsAsInitial(CustomerEditForm);
+export default accessControl([CUSTOMER_EDIT, CUSTOMER_VIEW])(setPropsAsInitial(CustomerEditForm));
